@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const conn = require('../mariadb'); //routes폴더 밖으로 나가서 mariadb찾음
+const conn = require('../mariadb'); 
 const {join, 
        login, 
        passwordResetRequest, 

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const ensureAuthorization = (req, res) => {  //화살표 함수로 바꿔주면 됨
+const ensureAuthorization = (req, res) => {  
   try {
     let receivedJwt = req.headers["authorization"];
     console.log("receivedJwt: ", receivedJwt);
@@ -12,7 +12,7 @@ const ensureAuthorization = (req, res) => {  //화살표 함수로 바꿔주면 
       console.log("decodedJwt: ", decodedJwt);
       return decodedJwt;
     }else{
-      throw new ReferenceError("jwt must be provided"); //undefined다
+      throw new ReferenceError("jwt must be provided"); 
     }
     
   } catch (err) {

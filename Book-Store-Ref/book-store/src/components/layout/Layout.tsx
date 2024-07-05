@@ -3,7 +3,7 @@ import Footer from "../common/Footer";
 import Header from "../common/Header";
 
 interface LayoutProps{
-  children: React.ReactNode; //코파일럿이 자동지정
+  children: React.ReactNode; 
 }
 
 
@@ -18,7 +18,6 @@ function Layout({children}: LayoutProps) {
 }
 
 const LayoutStyle= styled.main`
-  //가운데 정렬 필요
   width: 100%;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.layout.width.large};

@@ -1,26 +1,22 @@
 export type ThemeName = "light" | "dark";
 export type ColorKey = "primary" | "background" | "secondary" | "third" | "border" | "text";
-//title의 size
 export type HeadingSize = "large" | "medium" | "small";
-//Button의 size
 export type ButtonSize = "large" | "medium" | "small";
 export type ButtonScheme = "primary" | "normal";
-//Header
 export type LayoutWidth = "large" | "medium" | "small";
 
-//color 레코드 방식 지정
 interface Theme{
   name: ThemeName;
   color: Record<ColorKey, string>;
   heading: {
     [key in HeadingSize]: {
-      fontsize: string; //아마도 pixel이 될 것
+      fontsize: string; 
     };
   };
   button: {
     [key in ButtonSize]:{
       fontsize: string;
-      padding: string; //fontsize에 따라 padding이 달라질 수 있어서 필요
+      padding: string; 
     };
   };
   buttonScheme:{
@@ -38,7 +34,6 @@ interface Theme{
     };
   };
 }
-
 
 export const light: Theme = {
   name: "light",
@@ -120,14 +115,3 @@ export const getTheme = (themeName: ThemeName): Theme=>{
   }
 };
 
-
-
-
-
-//color 타입으로 지정
-// interface Theme{
-//   name: string;
-//   color: {
-//    [key in ColorKey]: string;
-//   };
-// }

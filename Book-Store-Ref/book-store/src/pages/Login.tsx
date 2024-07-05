@@ -25,25 +25,19 @@ function Login() {
     register, handleSubmit, formState: {errors}, 
   } = useForm<SignupProps>();
 
-  const onSubmit = (data: SignupProps) => { //data는 약속된거
-    //로그인 패쳐 필요
-    login(data).then((res) => { //res: auth.api.ts의 response.data
-      // console.log(res.token);
+  const onSubmit = (data: SignupProps) => { 
+    login(data).then((res) => { 
 
-      //상태 변화
-      storeLogin(res.token);//성공시 ->  토큰받음
+      storeLogin(res.token);
       showAlert("로그인 완료되었습니다.");
       navigate("/");
-    }, (error) => { //실패시 처리
+    }, (error) => { 
       showAlert("로그인이 실패하였습니다.");
     });
 };
 
-  // console.log(isloggedIn);
-
   return (
     <>
-    {/* //공통 컴포넌트 불러오기 */}
     <Title size="large">로그인</Title>
     <SignupStyle>
       <form onSubmit={handleSubmit(onSubmit)}>

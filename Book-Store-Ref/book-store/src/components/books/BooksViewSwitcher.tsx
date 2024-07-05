@@ -22,7 +22,7 @@ function BooksViewSwitcher() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSwitch = (value: ViewMode) => {
-    const newSearchParams = new URLSearchParams(searchParams); //current 현재 값넣음
+    const newSearchParams = new URLSearchParams(searchParams); 
     newSearchParams.set(QUERYSTRING.VIEW, value);
     setSearchParams(newSearchParams);
   };

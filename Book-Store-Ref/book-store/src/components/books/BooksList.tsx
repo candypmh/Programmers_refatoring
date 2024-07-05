@@ -15,7 +15,6 @@ function BooksList({books}:Props) {
   useEffect(()=>{
     const params = new URLSearchParams(location.search);
     if(params.get(QUERYSTRING.VIEW)){
-      //상태 하나 만들자
       setView(params.get(QUERYSTRING.VIEW) as ViewMode);
     }
   }, [location.search])
@@ -23,13 +22,12 @@ function BooksList({books}:Props) {
   return (
     <BooksListStyle view = {view}>
       {books?.map((item) => (
-        <BookItem key={item.id} book = {item} view = {view}/> //id: bookid
+        <BookItem key={item.id} book = {item} view = {view}/>
       ))}
     </BooksListStyle>
   );
 }
 
-//타입방어 지정
 interface BooksListStyleProps {
   view: ViewMode;
 }

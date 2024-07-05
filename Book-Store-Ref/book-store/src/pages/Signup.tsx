@@ -16,21 +16,13 @@ export interface SignupProps {
 function Signup() {
   const navigate = useNavigate(); 
   const showAlert = useAlert();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=>{
-  //   event.preventDefault();
-  //   console.log(email,password);
 
   const {
     register, handleSubmit, formState: {errors}, 
   } = useForm<SignupProps>();
 
-  const onSubmit = (data: SignupProps) => { //data는 약속된거
-    //form submit했을때 action넣어주기
+  const onSubmit = (data: SignupProps) => { 
     signup(data).then((res) => { 
-      //성공
       showAlert("회원가입이 완료되었습니다.");
       navigate("/login");
     });
@@ -38,12 +30,11 @@ function Signup() {
 
   return (
     <>
-    {/* //공통 컴포넌트 불러오기 */}
     <Title size="large">회원가입</Title>
     <SignupStyle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-          <InputText placeholder="이메일" inputType="email" {...register("email", {required: true})}/>   {/*e는 event*/}
+          <InputText placeholder="이메일" inputType="email" {...register("email", {required: true})}/> 
           {errors.email && <p className="error-text">이메일을 입력해주세요.</p>}
         </fieldset>
         <fieldset>

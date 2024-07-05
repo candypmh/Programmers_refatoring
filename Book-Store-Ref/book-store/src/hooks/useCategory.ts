@@ -35,7 +35,6 @@ export const useCategory = () => {
     fetchCategory().then((category) => {
       if(!category) return;
 
-      //전체: fetch한 이후에
       const categoryWithAll = [
         {
          category_id: null,

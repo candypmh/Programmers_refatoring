@@ -59,7 +59,6 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    // <Layout children = {<Detail />} />
     <BookStoreThemeProvider>
       <RouterProvider router={router} />
     </BookStoreThemeProvider>

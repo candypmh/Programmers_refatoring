@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { Book } from '../../models/book.model';
 import { getImgSrc } from '../../utils/image';
 import { formatNumber } from '../../utils/format';
-import { FaHeart } from 'react-icons/fa'; //하트 아이콘
+import { FaHeart } from 'react-icons/fa'; 
 import { ViewMode } from './BooksViewSwitcher';
 
 interface Props {

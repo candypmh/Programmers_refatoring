@@ -8,8 +8,7 @@ import { LIMIT } from '../constants/pagination';
 
 const useBooks = () => {
   const location = useLocation();
-  //상태정의
-  const [books, setBooks] = useState<Book[]>([]); //빈배열 기본값
+  const [books, setBooks] = useState<Book[]>([]); 
   const [pagination, setPagination] = useState<Pagination>({
     currentPage: 1,
     totalCount: 0,
@@ -30,19 +29,18 @@ useEffect(()=>{
     news: params.get(QUERYSTRING.NEWS)? true : undefined,
     currentPage: params.get(QUERYSTRING.PAGE) ?
     Number(params.get(QUERYSTRING.PAGE)) : 1,
-    limit: LIMIT,//늘 상수
-
+    limit: LIMIT,
   }).then(({books, pagination}) => {
     setBooks(books);
     setPagination(pagination);
-    setIsEmpty(books.length === 0); //길이가 0이면
+    setIsEmpty(books.length === 0); 
     console.log("then안의 pagination:",pagination);
 
   }); 
 
 }, [location.search]);
 
-  return {books, pagination, isEmpty}; //useHook에 return해주는거
+  return {books, pagination, isEmpty}; 
 };
 
 export default useBooks

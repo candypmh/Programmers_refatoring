@@ -14,7 +14,7 @@ function Pagination({ pagination }: Props) {
   const { totalCount, currentPage } = pagination;
   const pages: number = Number(Math.ceil(totalCount / LIMIT));
 
-  const handleClickPage = (page: number) => { //어떤 페이지정보를 가져오는데 여기서는 index
+  const handleClickPage = (page: number) => { 
     const newSearchParams = new URLSearchParams(searchParams);
 
     newSearchParams.set(QUERYSTRING.PAGE, page.toString());

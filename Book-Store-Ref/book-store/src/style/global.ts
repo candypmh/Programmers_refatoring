@@ -6,7 +6,6 @@ interface Props {
   themeName: ThemeName;
 }
 
-// generic으로 테마넣어주기 가능
 export const GlobalStyle = createGlobalStyle<Props>` 
   body {
     padding: 0; 

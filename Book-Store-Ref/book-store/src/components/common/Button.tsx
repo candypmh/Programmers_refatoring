@@ -5,10 +5,8 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   children:React.ReactNode;
   size: ButtonSize;
   scheme: ButtonScheme;
-  disabled?: boolean; //클릭상태
+  disabled?: boolean; 
   isLoading?: boolean; 
-  //버튼 클릭시 여러번 실행되면 별로 좋지않은 UI로 이야기
-  //그래서 클릭되면 더이상 클릭되지않도록 설정
 }
 
 function Button({children, size, scheme, disabled, isLoading, onClick}:Props) {
@@ -30,7 +28,5 @@ const ButtonStyle = styled.button<Omit<Props, "children">>`
   pointer-events: ${({disabled})=> (disabled? "none" : "auto")}; 
   cursor: ${({disabled})=> (disabled? "none" : "pointer")}; 
 `;
-// opacity: 버튼 비활성화면1, 아니면 0.5
-//pointer-events는 opacity에 맞춰줌 => none 화면에 출력은 되지만 클릭은 안됨
 
 export default Button;

@@ -1,7 +1,7 @@
 export interface Book{
   id: number;
   title: string;
-  img: number; //픽썸 외부사이트 사용할것임
+  img: number; 
   category_id: number;
   form: string;
   isbn: string;

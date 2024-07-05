@@ -3,7 +3,7 @@ import { Pagination } from "../models/pagination.model";
 import { httpClient } from "./http";
 
 interface fetchBooksParams {
-  category_id? : number; //쿼리스트링 제공하는거랑 같음
+  category_id? : number; 
   news?: boolean;
   currentPage?: number;
   limit: number; 
@@ -17,7 +17,6 @@ interface FetchBooksResponse {
 export const fetchBooks = async(params: fetchBooksParams)=>{
 
   try {
-    //성공시
     const response = await httpClient.get<FetchBooksResponse>("/books", {
       params: params,
     });

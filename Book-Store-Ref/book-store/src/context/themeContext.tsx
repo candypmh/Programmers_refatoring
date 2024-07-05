@@ -12,7 +12,7 @@ interface State {
 }
 
 export const state = {
-  themeName: DEFAULT_THEME_NAME as ThemeName,  //초기값 string으로 줘서 그럼
+  themeName: DEFAULT_THEME_NAME as ThemeName,  
   toggleTheme: () => {},
 };
 

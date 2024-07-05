@@ -17,7 +17,7 @@ export interface SignupProps {
 function ResetPassword() {
   const navigate = useNavigate();
   const showAlert = useAlert();
-  const [resetRequested, setResetRequested] = useState(false); //요청했느냐로 구분가능하니 boolean
+  const [resetRequested, setResetRequested] = useState(false); 
 
   const {
     register,
@@ -27,10 +27,7 @@ function ResetPassword() {
 
   const onSubmit = (data: SignupProps) => {
     if(resetRequested){
-      //requested된 이후
-      //초기화
       resetPassword(data).then(()=>{
-        //최종 초기화 완료
         showAlert("비밀번호가 초기화되었습니다.");
         navigate("/login");
       });
@@ -44,14 +41,13 @@ function ResetPassword() {
 
   return (
     <>
-      {/* //공통 컴포넌트 불러오기 */}
       <Title size="large">비밀번호 초기화</Title>
       <SignupStyle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <InputText
               placeholder="이메일" inputType="email" 
-              {...register("email", { required: true })} />{" "} {/*e는 event*/}
+              {...register("email", { required: true })} />{" "} 
             {errors.email && (
               <p className="error-text">이메일을 입력해주세요.</p>
             )}
@@ -79,7 +75,5 @@ function ResetPassword() {
     </>
   );
 }
-
-//스타일 중복은 불필요하니 signup style가져오면 됨
 
 export default ResetPassword;

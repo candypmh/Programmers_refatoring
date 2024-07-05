@@ -5,15 +5,15 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   children:React.ReactNode;
   size: ButtonSize;
   scheme: ButtonScheme;
-  disabled: boolean; //클릭상태
-  isLoading: boolean; 
+  disabled?: boolean; //클릭상태
+  isLoading?: boolean; 
   //버튼 클릭시 여러번 실행되면 별로 좋지않은 UI로 이야기
   //그래서 클릭되면 더이상 클릭되지않도록 설정
 }
 
-function Button({children, size, scheme, disabled, isLoading}:Props) {
+function Button({children, size, scheme, disabled, isLoading, onClick}:Props) {
   return (
-    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading}>
+    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} onClick = {onClick}>
       {children}
     </ButtonStyle>
   );
@@ -21,7 +21,7 @@ function Button({children, size, scheme, disabled, isLoading}:Props) {
 
 const ButtonStyle = styled.button<Omit<Props, "children">>`
   font-size: ${({theme, size})=> theme.button[size].fontSize};
-  padding: ${({theme, size})=> theme.button[size].fontSize};
+  padding: ${({theme, size})=> theme.button[size].padding};
   color:  ${({theme, scheme})=> theme.buttonScheme[scheme].color};
   background-color: ${({theme, scheme})=> theme.buttonScheme[scheme].backgroundColor};
   border: 0;
